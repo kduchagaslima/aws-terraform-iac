@@ -3,16 +3,15 @@ pipeline {
 stages {
     stage('Git Checkout') { 
       steps {
-        git 'https://github.com/kduchagaslima/aws-terraform-iac.git'
+        git branch: 'main', url: 'https://github.com/kduchagaslima/aws-terraform-iac.git'
       }
     }
     stage('Terraform Plan') {
       steps {
         sh '''
-        cd terraform
         mkdir /var/jenkins_home/terraform-state/${BUILD_NUMBER}
         cp -rp * /var/jenkins_home/terraform-state/${BUILD_NUMBER}
-        cd /var/jenkins_home/terraform-state/${BUILD_NUMBER}
+        cd /var/jenkins_home/terraform-state/${BUILD_NUMBER}/terraform
         terraform init
         terraform plan
         '''
@@ -26,7 +25,7 @@ stages {
     stage ('Terraform Apply') {
       steps {
         sh '''
-        cd /var/jenkins_home/terraform-state/${BUILD_NUMBER}
+        cd /var/jenkins_home/terraform-state/${BUILD_NUMBER}/terraform
         terraform apply --auto-approve
         '''
       }
