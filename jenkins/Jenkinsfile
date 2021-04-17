@@ -1,0 +1,35 @@
+pipeline {
+  agent any
+stages {
+    stage('Git Checkout') { 
+      steps {
+        git 'https://github.com/kduchagaslima/aws-terraform-iac.git'
+      }
+    }
+    stage('Terraform Plan') {
+      steps {
+        sh '''
+        cd terraform
+        mkdir /var/jenkins_home/terraform-state/${BUILD_NUMBER}
+        cp -rp * /var/jenkins_home/terraform-state/${BUILD_NUMBER}
+        cd /var/jenkins_home/terraform-state/${BUILD_NUMBER}
+        terraform init
+        terraform plan
+        '''
+      }
+    }    
+    stage('Deploy Approval') {
+      steps {
+        input 'Deploy stack?'
+      }
+    }
+    stage ('Terraform Apply') {
+      steps {
+        sh '''
+        cd /var/jenkins_home/terraform-state/${BUILD_NUMBER}
+        terraform apply --auto-approve
+        '''
+      }
+    }
+  }
+}

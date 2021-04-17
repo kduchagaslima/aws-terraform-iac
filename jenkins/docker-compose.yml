@@ -1,0 +1,17 @@
+version: '3'
+services:
+  jenkins-pipeline:
+    image: kduchagaslima/jenkins-terraform:latest
+    volumes:
+      - workspace:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8080:8080
+      - 50000:50000
+volumes:
+  workspace:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/jenkins_home/workspace
