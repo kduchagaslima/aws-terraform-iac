@@ -10,8 +10,8 @@ def criainfra(quantity):
     response=table.get_item(Key={'quantity': quantity})
     if 'Item' in response:
         if (response['Item']['balance']) < 10:
-            url="http://ec2-34-239-174-253.compute-1.amazonaws.com:8080/generic-webhook-trigger/invoke"
-            r = requests.post(url, headers = {"token": "11988b8a261c396da3d61dc5b7db928ffd"})
+            url="http://<MY_JENKINS_URL>:8080/generic-webhook-trigger/invoke"
+            r = requests.post(url, headers = {"token": "<WEBHOOK_JENKINS_JOB_TOKEN>"})
             table.update_item(Key={'quantity': quantity}, UpdateExpression="SET balance = balance + :i", ExpressionAttributeValues={':i': decimal.Decimal(1)})
             return{'fulfillmentText' : "Sua instancia " + response['Item']['resource'] + " está sendo criada"}
         else:
