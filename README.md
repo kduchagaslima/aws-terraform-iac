@@ -7,11 +7,11 @@ Este projeto tem como objetivo prover uma fluxo de self service para desenvolved
 
 - [x] [API Gateway](https://console.aws.amazon.com/apigateway/)  com um método POST configurado linkado ao `Lambda`
 
-- [x] [Dynamo DB](https://console.aws.amazon.com/dynamodb/) - Foi criado uma tabela `infrastructure` com 2 items 
+- [x] [Dynamo DB](https://console.aws.amazon.com/dynamodb/) - Foi criado uma tabela `infrastructure` com 3 items 
 
-| quantity | reource |
-| -------- |:-------:|
-|    `1`  |  `ec2` |
+| quantity | resource | balance
+| -------- |:-------:|:-------:|
+|    `1`  |  `ec2` | `0`
 
 ## Requirements on Jenkins
 - [x] Terraform
