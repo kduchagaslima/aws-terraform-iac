@@ -20,3 +20,20 @@ Este projeto tem como objetivo prover uma fluxo de self service para desenvolved
 
 ## Requirements on Dialog flow
 
+- [x] Criar a intenção para deploy de uma **EC2**
+````
+name: deploy-ec2
+----
+Training phrases
+Ex:
+"quero criar 1 ec2 na aws"
+"preciso de 3 instancias ec2 na aws"
+"quero 10 ec2"
+----
+Action and parameters
+parameter name: quantidade
+entity: @sys.number
+value: $quantidade
+````
+- Ativar o Webhook na seção `Fulfillment` com a URL gerada pelo `API Gateway`
+
