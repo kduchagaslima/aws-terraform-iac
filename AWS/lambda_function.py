@@ -13,11 +13,11 @@ def criainfra(quantity):
             url="http://ec2-34-239-174-253.compute-1.amazonaws.com:8080/generic-webhook-trigger/invoke"
             r = requests.post(url, headers = {"token": "11988b8a261c396da3d61dc5b7db928ffd"})
             table.update_item(Key={'quantity': quantity}, UpdateExpression="SET balance = balance + :i", ExpressionAttributeValues={':i': decimal.Decimal(1)})
-            return{'fulfillmentText' : response['Item']['resource']}
+            return{'fulfillmentText' : "Sua instancia " + response['Item']['resource'] + " está sendo criada"}
         else:
             return{'fulfillmentText' : 'Escopo do projeto alcançado'}
     else:
-        return{'fulfillmentText' : 'Procure o time de DevOps'}
+        return{'fulfillmentText' : 'Você não tem permissão para criar mais de uma instancia por solicitação'}
 
 def lambda_handler(event, context):
   quantity=event['queryResult']['parameters']['quantidade']
