@@ -1,6 +1,8 @@
+# ChatOps DialogFlow
+
 ![alt text](images/Diagrama_solution.png)
-# aws-terraform-iac
-Este projeto tem como objetivo prover uma fluxo de self service para desenvolvedores que precisam de uma instância do tipo EC2 para desenvolvimento ou validação.
+
+Este projeto tem como objetivo prover um fluxo de self service para desenvolvedores que precisam de uma instância do tipo EC2 para desenvolvimento ou validação.
 
 ## Requirements on AWS
 - [x] [Lambda Function](https://console.aws.amazon.com/lambda/) - com runtime `Python 3.6` e com a função conforme arquivo `AWS/lambda_funtion.py`
