@@ -154,7 +154,7 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 # Verificando as versões instaladas e atualizar permissão docker:
 cd ~
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tVerificando as instações:\n\n"
+printf "\n\n\tVerificando as instalações:\n\n"
 printf "\n\n\tDEV TOOLS:\n\n"
 printf "\n\tJAVA:\n"
 java -version
