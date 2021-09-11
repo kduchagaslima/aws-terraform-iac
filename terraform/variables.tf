@@ -1,6 +1,6 @@
 variable "instance_type" {
-  # default     = "t2.micro"
-  default     = "t2.medium"
+  default     = "t2.micro"
+  #default     = "t2.medium"
 }
 
 variable "volume_size" {
@@ -9,7 +9,7 @@ variable "volume_size" {
 
 variable "ec2_name" {
   type        = string
-  default     = "fiap_vm_medium_2cpus_4gb"
+  default     = "my-home-lab"
 }
 
 variable "key_name" {
@@ -25,7 +25,8 @@ variable "aws_region" {
 # Ubuntu 18.04 LTS (x64)
 variable "aws_amis" {
   default = {
-    us-east-1 = "ami-07ebfd5b3428b6f4d"
+    #us-east-1 = "ami-07ebfd5b3428b6f4d" ## Ubuntu 18.04
+    us-east-1 = "ami-087c17d1fe0178315" ## Amazon Linux
   }
 }
 

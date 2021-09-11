@@ -37,7 +37,7 @@ resource "aws_security_group" "default" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["187.38.62.45/32"]
   }
 
   # Acesso HTTP a partir do VPC
@@ -48,13 +48,13 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["10.0.0.0/16"]
   }
 
-  # Acesso TOTAL de qualquer um
-  ingress {
-    from_port   = 0
-    to_port     = 65353
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+#  # Acesso TOTAL de qualquer um
+#  ingress {
+#    from_port   = 0
+#    to_port     = 65353
+#    protocol    = "tcp"
+#    cidr_blocks = ["0.0.0.0/0"]
+#  }
   
   # Acesso de saida para internet
   egress {
