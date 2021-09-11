@@ -1,8 +1,9 @@
  # Define o provedor AWS onde serão criados os recursos
 provider "aws" {
   region = var.aws_region
+  shared_credentials_file = "/var/jenkins_home/workspace/.aws/creds"
+  #profile                 = "customprofile"
 }
-
 # Cria um VPC que receberá as instâncias e recursos
 resource "aws_vpc" "default" {
   cidr_block = "10.0.0.0/16"
