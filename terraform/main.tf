@@ -8,6 +8,10 @@ provider "aws" {
 resource "aws_vpc" "default" {
   cidr_block = "10.0.0.0/16"
   enable_dns_hostnames = true
+   tags = {
+    Name = minha_vpc
+   }  
+  
 }
 # Cria um Internet Gateway que possibilita a comunicação do VPN com o mundo externo
 resource "aws_internet_gateway" "default" {
